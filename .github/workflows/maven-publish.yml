@@ -7,7 +7,7 @@ on:
   push:
     branches: [master]
   pull_request:
-    branches: [dev]
+    branches: [master]
 
 jobs:
   build:
@@ -25,4 +25,4 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
-      run: mvn -B clean build --file pom.xml
+      run: mvn -B clean install package --file pom.xml
